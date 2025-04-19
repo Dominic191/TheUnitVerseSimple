@@ -1,6 +1,3 @@
-using System;
-using Microsoft.Maui.Controls;
-
 namespace TheUnitVerseSimple;
 
 public partial class UnitConverterPage : ContentPage
@@ -24,6 +21,8 @@ public partial class UnitConverterPage : ContentPage
                 ToUnitPicker.ItemsSource = units.ToList();
             }
         };
+
+        LoadHistory();
     }
 
     void OnConvertClicked(object sender, EventArgs e)
@@ -35,10 +34,20 @@ public partial class UnitConverterPage : ContentPage
         {
             var unitType = UnitTypePicker.SelectedItem.ToString();
             var convertFunc = conversionMap[unitType].Item2;
-            double result = convertFunc(value, FromUnitPicker.SelectedItem.ToString(), ToUnitPicker.SelectedItem.ToString());
+            double result = convertFunc(value,
+                                        FromUnitPicker.SelectedItem.ToString(),
+                                        ToUnitPicker.SelectedItem.ToString());
 
             ResultLabel.Text = $"Result: {result}";
-            App.Database.SaveConversion($"Converted {value} {FromUnitPicker.SelectedItem} to {ToUnitPicker.SelectedItem}: {result}");
+
+            string historyEntry = $"Converted {value} {FromUnitPicker.SelectedItem} to {ToUnitPicker.SelectedItem}: {result}";
+            App.Database.SaveConversion(historyEntry);
+            LoadHistory();
         }
+    }
+
+    void LoadHistory()
+    {
+        HistoryView.ItemsSource = App.Database.GetConversions();
     }
 }

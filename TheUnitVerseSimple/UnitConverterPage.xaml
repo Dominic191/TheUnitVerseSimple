@@ -2,19 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheUnitVerseSimple.UnitConverterPage"
-             Title="Unit Converter"
-             BackgroundColor="#1a1a2e"
-             xmlns:local="clr-namespace:TheUnitVerseSimple"
->
+             BackgroundColor="#000011"
+             xmlns:local="clr-namespace:TheUnitVerseSimple">
 
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout Spacing="10" Padding="10">
+
+        <!-- Top Custom Nav Bar -->
         <local:CustomNavBar />
-        <Label Text="Unit Converter" FontSize="24" TextColor="White"/>
-        <Picker x:Name="UnitTypePicker" Title="Select Unit Type"/>
-        <Picker x:Name="FromUnitPicker" Title="From"/>
-        <Picker x:Name="ToUnitPicker" Title="To"/>
-        <Entry x:Name="InputEntry" Placeholder="Enter value" Keyboard="Numeric"/>
-        <Button Text="Convert" Clicked="OnConvertClicked"/>
-        <Label x:Name="ResultLabel" FontSize="18" TextColor="White"/>
+
+        <!-- Main Layout Grid -->
+        <Grid ColumnDefinitions="3*, 2*" Padding="10">
+
+            <!-- Unit Conversion Section -->
+            <VerticalStackLayout Grid.Column="0" Spacing="10">
+                <Label Text="Unit Converter"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalOptions="Center" />
+
+                <Picker x:Name="UnitTypePicker" Title="Select Unit Type" />
+                <Entry x:Name="InputEntry" Placeholder="Enter value" Keyboard="Numeric" />
+                <Picker x:Name="FromUnitPicker" Title="From Unit" />
+                <Picker x:Name="ToUnitPicker" Title="To Unit" />
+                <Button Text="Convert" Clicked="OnConvertClicked" />
+                <Label x:Name="ResultLabel" FontSize="18" TextColor="White" />
+            </VerticalStackLayout>
+
+            <!-- History Section -->
+            <CollectionView Grid.Column="1" x:Name="HistoryView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="#1f1f2f" Padding="10" Margin="5" CornerRadius="10">
+                            <Label Text="{Binding}" TextColor="White" />
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
