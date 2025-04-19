@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="TheUnitVerseSimple.MainPage"
+    BackgroundColor="#0d0d1f"
+    Title="The Unit-verse">
+
+    <Grid ColumnDefinitions="*,*" Padding="10">
+        <!-- Left: Unit Converter -->
+        <ScrollView Grid.Column="0">
+            <VerticalStackLayout Spacing="12" Padding="10">
+                <Label Text="Unit Converter" FontSize="24" TextColor="White" />
+                <Picker x:Name="UnitTypePicker" Title="Unit Type" />
+                <Picker x:Name="FromUnitPicker" Title="From" />
+                <Picker x:Name="ToUnitPicker" Title="To" />
+                <Entry x:Name="InputEntry" Placeholder="Enter value" Keyboard="Numeric" />
+                <Button Text="Convert" Clicked="OnConvertClicked" />
+                <Label x:Name="ResultLabel" FontSize="18" TextColor="White" />
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Right: Conversion History -->
+        <ScrollView Grid.Column="1">
+            <VerticalStackLayout Spacing="12" Padding="10">
+                <Label Text="History" FontSize="24" TextColor="White" />
+                <CollectionView x:Name="HistoryView">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#1f1f2f" Padding="10" Margin="4" CornerRadius="10">
+                                <Label Text="{Binding}" TextColor="White" FontSize="14" />
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

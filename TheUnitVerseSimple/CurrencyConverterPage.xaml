@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheUnitVerseSimple.CurrencyConverterPage"
+             Title="Currency Converter"
+             BackgroundColor="#0f0f2f"
+             xmlns:local="clr-namespace:TheUnitVerseSimple"
+>
+
+    <VerticalStackLayout Padding="20">
+        <local:CustomNavBar />
+        <Label Text="Currency Converter" FontSize="24" TextColor="White" />
+
+        <Picker x:Name="FromCurrencyPicker" Title="From Currency" />
+        <Picker x:Name="ToCurrencyPicker" Title="To Currency" />
+        <Entry x:Name="AmountEntry" Placeholder="Enter amount" Keyboard="Numeric" />
+
+        <Button Text="Convert" Clicked="OnConvertCurrencyClicked" />
+
+        <Label x:Name="CurrencyResultLabel" FontSize="18" TextColor="White" />
+    </VerticalStackLayout>
+</ContentPage>
