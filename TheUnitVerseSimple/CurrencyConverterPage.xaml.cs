@@ -5,7 +5,7 @@ namespace TheUnitVerseSimple;
 public partial class CurrencyConverterPage : ContentPage
 {
     Dictionary<string, double> rates = new();
-
+    // testeing me yest
     public CurrencyConverterPage()
     {
         InitializeComponent();
