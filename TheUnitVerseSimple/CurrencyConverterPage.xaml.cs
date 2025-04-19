@@ -5,7 +5,7 @@ namespace TheUnitVerseSimple;
 public partial class CurrencyConverterPage : ContentPage
 {
     Dictionary<string, double> rates = new();
-    // testeing me yest
+
     public CurrencyConverterPage()
     {
         InitializeComponent();
@@ -17,17 +17,21 @@ public partial class CurrencyConverterPage : ContentPage
         try
         {
             var response = await new HttpClient().GetFromJsonAsync<ExchangeResponse>(
-                "https://api.exchangerate.host/latest?base=USD");
+                "https://api.freecurrencyapi.com/v1/latest?apikey=fca_live_BYtRDAAI3WGjJasrnrQkVz1K5tYaAUJOmllv47fI");
 
-            if (response?.rates != null)
+            if (response?.data != null)
             {
-                rates = response.rates;
+                rates = response.data;
                 var currencies = rates.Keys.OrderBy(c => c).ToList();
                 FromCurrencyPicker.ItemsSource = currencies;
                 ToCurrencyPicker.ItemsSource = currencies;
 
                 FromCurrencyPicker.SelectedItem = "USD";
                 ToCurrencyPicker.SelectedItem = "CAD";
+            }
+            else
+            {
+                await DisplayAlert("Error", "No currency data received.", "OK");
             }
         }
         catch (Exception ex)
@@ -55,6 +59,6 @@ public partial class CurrencyConverterPage : ContentPage
 
     class ExchangeResponse
     {
-        public Dictionary<string, double> rates { get; set; }
+        public Dictionary<string, double> data { get; set; }
     }
 }
