@@ -13,19 +13,13 @@
             ContentTemplate="{DataTemplate local:UnitConverterPage}"
             Route="UnitConverterPage" />
 
-        <ShellContent
-            Title="History"
-            ContentTemplate="{DataTemplate local:HistoryPage}"
-            Route="HistoryPage" />
+        
 
         <ShellContent
             Title="Currency"
             ContentTemplate="{DataTemplate local:CurrencyConverterPage}"
             Route="CurrencyConverterPage" />
-        <ShellContent
-            Title="Main"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage"/>
+        
     </TabBar>
 
 
