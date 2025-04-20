@@ -1,7 +1,9 @@
 namespace TheUnitVerseSimple;
 
+// Gets the logic class for unit conversions
 public static class UnitConverterLogic
 {
+    // Gets the full map of unit types with their units and corresponding conversion functions
     public static Dictionary<string, (string[], Func<double, string, string, double>)> GetConversionMap()
     {
         return new()
@@ -20,6 +22,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between length units
     static double ConvertLength(double value, string from, string to)
     {
         var meters = from switch
@@ -41,9 +44,11 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between temperature units
     static double ConvertTemperature(double value, string from, string to)
     {
         if (from == to) return value;
+
         double c = from switch
         {
             "Celsius" => value,
@@ -61,6 +66,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between time units
     static double ConvertTime(double value, string from, string to)
     {
         var seconds = from switch
@@ -80,6 +86,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between weight or mass units
     static double ConvertWeight(double value, string from, string to)
     {
         var grams = from switch
@@ -101,6 +108,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between speed units
     static double ConvertSpeed(double value, string from, string to)
     {
         var mps = from switch
@@ -120,6 +128,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between volume units
     static double ConvertVolume(double value, string from, string to)
     {
         var liters = from switch
@@ -141,6 +150,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between area units
     static double ConvertArea(double value, string from, string to)
     {
         var sqm = from switch
@@ -162,6 +172,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between pressure units
     static double ConvertPressure(double value, string from, string to)
     {
         var pascals = from switch
@@ -183,6 +194,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between energy units
     static double ConvertEnergy(double value, string from, string to)
     {
         var joules = from switch
@@ -202,6 +214,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between data storage units
     static double ConvertDataStorage(double value, string from, string to)
     {
         var bytes = from switch
@@ -225,6 +238,7 @@ public static class UnitConverterLogic
         };
     }
 
+    // Converts between fuel consumption units
     static double ConvertFuelConsumption(double value, string from, string to)
     {
         return (from, to) switch
