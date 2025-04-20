@@ -20,10 +20,4 @@ public partial class CustomNavBar : ContentView
     {
         await Application.Current.MainPage.Navigation.PushAsync(new CurrencyConverterPage());
     }
-
-    // Navigates to the History page when History is clicked
-    async void History_Clicked(object sender, EventArgs e)
-    {
-        await Application.Current.MainPage.Navigation.PushAsync(new HistoryPage());
-    }
 }

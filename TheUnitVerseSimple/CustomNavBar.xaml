@@ -10,7 +10,6 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Button Text="Home" Grid.Column="0" TextColor="White" Clicked="Home_Clicked" />
@@ -18,6 +17,5 @@
                HorizontalOptions="Center" VerticalOptions="Center"
                FontSize="20" TextColor="White" />
         <Button Text="Currency" Grid.Column="2" TextColor="White" Clicked="Currency_Clicked" />
-        <Button Text="History" Grid.Column="3" TextColor="White" Clicked="History_Clicked" />
     </Grid>
 </ContentView>

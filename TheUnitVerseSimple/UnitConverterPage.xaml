@@ -105,15 +105,26 @@
             </VerticalStackLayout>
 
             <!-- History Section -->
-            <CollectionView Grid.Column="1" x:Name="HistoryView">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame BackgroundColor="#1f1f2f" Padding="10" Margin="5" CornerRadius="10">
-                            <Label Text="{Binding}" TextColor="White" />
-                        </Frame>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+            <VerticalStackLayout Grid.Column="1" Spacing="5">
+                <Label Text="History"
+                       FontSize="24"
+                       TextColor="White"
+                       HorizontalOptions="Center"
+                       Margin="0,0,0,10" />
+
+                <CollectionView x:Name="HistoryView"
+                                HeightRequest="500"
+                                VerticalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="#1f1f2f" Padding="10" Margin="5" CornerRadius="10">
+                                <Label Text="{Binding}" TextColor="White" />
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </VerticalStackLayout>
+
         </Grid>
     </VerticalStackLayout>
 </ContentPage>
