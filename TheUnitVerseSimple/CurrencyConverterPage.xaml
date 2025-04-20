@@ -3,20 +3,81 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheUnitVerseSimple.CurrencyConverterPage"
              Title="Currency Converter"
-             BackgroundColor="#0f0f2f"
-             xmlns:local="clr-namespace:TheUnitVerseSimple"
->
+             BackgroundColor="#000011"
+             xmlns:local="clr-namespace:TheUnitVerseSimple">
 
-    <VerticalStackLayout Padding="20">
+    <VerticalStackLayout Spacing="10" Padding="10">
+        <!-- Top Navigation Bar -->
         <local:CustomNavBar />
-        <Label Text="Currency Converter" FontSize="24" TextColor="White" />
 
-        <Picker x:Name="FromCurrencyPicker" Title="From Currency" />
-        <Picker x:Name="ToCurrencyPicker" Title="To Currency" />
-        <Entry x:Name="AmountEntry" Placeholder="Enter amount" Keyboard="Numeric" />
+        <!-- Page Title -->
+        <Label Text="Currency Converter"
+               FontSize="24"
+               TextColor="White"
+               HorizontalOptions="Center" />
 
-        <Button Text="Convert" Clicked="OnConvertCurrencyClicked" />
+        <!-- From Currency Picker -->
+        <Frame CornerRadius="10" BackgroundColor="#7A4AFF" Padding="10" Margin="0,3">
+            <Picker x:Name="FromCurrencyPicker"
+                    Title="From Currency"
+                    TitleColor="White"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    FontSize="16"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    FontAttributes="Bold"
+                    Visual="Material"
+                    ItemDisplayBinding="{Binding .}" />
+        </Frame>
 
-        <Label x:Name="CurrencyResultLabel" FontSize="18" TextColor="White" />
+        <!-- To Currency Picker -->
+        <Frame CornerRadius="10" BackgroundColor="#7A4AFF" Padding="10" Margin="0,3">
+            <Picker x:Name="ToCurrencyPicker"
+                    Title="To Currency"
+                    TitleColor="White"
+                    TextColor="White"
+                    BackgroundColor="Transparent"
+                    FontSize="16"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Start"
+                    FontAttributes="Bold"
+                    Visual="Material"
+                    ItemDisplayBinding="{Binding .}" />
+        </Frame>
+
+        <!-- Amount Entry -->
+        <Frame CornerRadius="10" BackgroundColor="#7A4AFF" Padding="10" Margin="0,3">
+            <Entry x:Name="AmountEntry"
+                   Placeholder="Enter amount"
+                   PlaceholderColor="White"
+                   TextColor="White"
+                   BackgroundColor="Transparent"
+                   FontSize="16"
+                   HeightRequest="50"
+                   Keyboard="Numeric"
+                   Visual="Material" />
+        </Frame>
+
+        <!-- Convert Button -->
+        <Button Text="Convert"
+                Clicked="OnConvertCurrencyClicked"
+                BackgroundColor="#7A4AFF"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                HeightRequest="45" />
+
+        <!-- Result Label -->
+        <Label x:Name="CurrencyResultLabel"
+               FontSize="18"
+               TextColor="White"
+               HorizontalOptions="Center" />
+
+        <!-- Space-themed image -->
+        <Image Source="spaceimage.png"
+               HeightRequest="300"
+               Aspect="AspectFit"
+               HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>
